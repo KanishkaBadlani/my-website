@@ -1,0 +1,1630 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Kanishka Badlani - Content Writer & Editor</title>
+<style>
+:root{
+  --bg:#050505;
+  --bg-soft:#090b10;
+  --ink:#101010;
+  --navy:#09111d;
+  --navy-2:#0e1a2c;
+  --cream:#f6efe3;
+  --cream-soft:#e4d7c2;
+  --sand:#cbb894;
+  --muted:#93856f;
+  --muted-2:#6d6252;
+  --gold:#c9a45e;
+  --gold-2:#efd58f;
+  --bronze:#71532b;
+  --line:rgba(239,213,143,.16);
+  --line-strong:rgba(239,213,143,.34);
+  --glass:rgba(246,239,227,.06);
+  --glass-2:rgba(246,239,227,.025);
+  --shadow:0 40px 120px rgba(0,0,0,.46);
+  --serif:Georgia,"Times New Roman",serif;
+  --sans:Inter,Avenir Next,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  --ease:cubic-bezier(.19,1,.22,1);
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+min-height:100vh;
+background:var(--bg);
+color:var(--cream);
+font-family:var(--sans);
+line-height:1.55;
+overflow-x:hidden;
+}
+body:before{
+content:"";
+position:fixed;
+inset:0;
+z-index:-5;
+pointer-events:none;
+background:
+radial-gradient(circle at 82% 9%,rgba(201,164,94,.20),transparent 29rem),
+radial-gradient(circle at 14% 18%,rgba(41,62,98,.30),transparent 34rem),
+radial-gradient(circle at 68% 76%,rgba(201,164,94,.10),transparent 36rem),
+linear-gradient(145deg,#050505 0%,#080d16 42%,#17120b 100%);
+}
+body:after{
+content:"";
+position:fixed;
+inset:0;
+z-index:1000;
+pointer-events:none;
+opacity:.085;
+mix-blend-mode:soft-light;
+background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 240 240' xmlns='[http://www.w3.org/2000/svg'%3E%3Cfilter](http://www.w3.org/2000/svg'%3E%3Cfilter) id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.72' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)' opacity='.52'/%3E%3C/svg%3E");
+}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit}
+::selection{background:var(--gold);color:#111}
+
+.progress{
+position:fixed;
+top:0;
+left:0;
+height:2px;
+width:0;
+z-index:120;
+background:linear-gradient(90deg,var(--gold),var(--gold-2),#fff3bd);
+}
+.bg-grid{
+position:fixed;
+inset:0;
+z-index:-4;
+pointer-events:none;
+opacity:.25;
+background-image:
+linear-gradient(rgba(239,213,143,.045) 1px,transparent 1px),
+linear-gradient(90deg,rgba(239,213,143,.035) 1px,transparent 1px);
+background-size:88px 88px;
+mask-image:linear-gradient(to bottom,rgba(0,0,0,.75),transparent 70%);
+}
+.cursor-light{
+position:fixed;
+width:520px;
+height:520px;
+border-radius:50%;
+pointer-events:none;
+z-index:-3;
+opacity:.55;
+background:radial-gradient(circle,rgba(239,213,143,.10),rgba(201,164,94,.04) 38%,transparent 68%);
+filter:blur(10px);
+transform:translate(-50%,-50%);
+}
+
+.nav{
+position:fixed;
+top:0;
+left:0;
+right:0;
+z-index:100;
+display:grid;
+grid-template-columns:auto 1fr auto;
+gap:28px;
+align-items:center;
+padding:24px clamp(20px,4.7vw,76px);
+border-bottom:1px solid transparent;
+transition:padding .45s var(--ease),background .45s var(--ease),border-color .45s var(--ease);
+}
+.nav.scrolled{
+padding-top:13px;
+padding-bottom:13px;
+background:rgba(5,5,5,.72);
+backdrop-filter:blur(24px);
+border-color:rgba(239,213,143,.12);
+}
+.brand{
+display:flex;
+align-items:center;
+gap:13px;
+min-width:max-content;
+font-family:var(--serif);
+color:var(--gold-2);
+letter-spacing:.075em;
+}
+.brand-mark{
+width:38px;
+height:38px;
+display:grid;
+place-items:center;
+border-radius:50%;
+border:1px solid var(--line-strong);
+background:linear-gradient(145deg,rgba(246,239,227,.075),rgba(246,239,227,.018));
+font-size:.8rem;
+}
+.nav-links{
+justify-self:center;
+display:flex;
+gap:5px;
+align-items:center;
+list-style:none;
+padding:6px;
+border-radius:999px;
+border:1px solid rgba(239,213,143,.13);
+background:rgba(246,239,227,.034);
+backdrop-filter:blur(20px);
+}
+.nav-links a{
+display:block;
+padding:9px 13px;
+border-radius:999px;
+color:rgba(246,239,227,.62);
+font-size:.66rem;
+letter-spacing:.15em;
+text-transform:uppercase;
+transition:.28s var(--ease);
+}
+.nav-links a:hover,.nav-links a.active{
+color:var(--gold-2);
+background:rgba(239,213,143,.105);
+}
+.nav-cta{
+min-height:40px;
+display:inline-flex;
+align-items:center;
+justify-content:center;
+padding:0 17px;
+border-radius:999px;
+color:#141008;
+background:linear-gradient(135deg,var(--gold-2),var(--gold));
+font-size:.68rem;
+letter-spacing:.15em;
+text-transform:uppercase;
+box-shadow:0 15px 46px rgba(201,164,94,.18);
+}
+
+.hero{
+position:relative;
+min-height:100svh;
+display:grid;
+grid-template-columns:minmax(0,1.08fr) minmax(330px,.72fr);
+gap:clamp(40px,7vw,110px);
+align-items:end;
+padding:150px clamp(20px,4.7vw,76px) 54px;
+overflow:hidden;
+}
+.hero-orbit{
+position:absolute;
+right:5vw;
+bottom:1vh;
+width:min(48vw,720px);
+aspect-ratio:1;
+border:1px solid rgba(239,213,143,.12);
+border-radius:50%;
+pointer-events:none;
+transform:translateY(var(--hero-shift,0));
+}
+.hero-orbit:before,.hero-orbit:after{
+content:"";
+position:absolute;
+inset:12%;
+border:1px dashed rgba(239,213,143,.14);
+border-radius:50%;
+animation:spin 44s linear infinite;
+}
+.hero-orbit:after{
+inset:29%;
+opacity:.62;
+animation-duration:30s;
+animation-direction:reverse;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+.kicker{
+display:flex;
+align-items:center;
+gap:15px;
+margin-bottom:28px;
+color:var(--gold-2);
+font-size:.68rem;
+letter-spacing:.29em;
+text-transform:uppercase;
+}
+.kicker:before{
+content:"";
+width:44px;
+height:1px;
+background:var(--gold);
+}
+h1{
+max-width:1080px;
+font-family:var(--serif);
+font-size:clamp(4.1rem,10.8vw,11.7rem);
+line-height:.84;
+letter-spacing:-.075em;
+font-weight:400;
+}
+h1 em{
+color:var(--gold-2);
+font-style:italic;
+}
+.hero-copy{
+max-width:760px;
+margin-top:36px;
+color:rgba(246,239,227,.72);
+font-size:clamp(1.05rem,1.5vw,1.32rem);
+font-weight:300;
+}
+.hero-copy strong{
+color:var(--cream);
+font-weight:480;
+}
+.actions{
+display:flex;
+flex-wrap:wrap;
+gap:14px;
+margin-top:40px;
+}
+.btn{
+min-height:50px;
+display:inline-flex;
+align-items:center;
+justify-content:center;
+padding:0 24px;
+border:1px solid var(--line);
+border-radius:999px;
+background:rgba(246,239,227,.024);
+color:var(--cream);
+font-size:.7rem;
+letter-spacing:.16em;
+text-transform:uppercase;
+transition:transform .35s var(--ease),border-color .35s var(--ease),background .35s var(--ease);
+}
+.btn:hover{
+transform:translateY(-3px);
+border-color:var(--gold-2);
+background:rgba(246,239,227,.055);
+}
+.btn.gold{
+background:linear-gradient(135deg,var(--gold-2),var(--gold));
+border-color:transparent;
+color:#141008;
+box-shadow:0 20px 64px rgba(201,164,94,.2);
+}
+
+.hero-visual{
+align-self:center;
+position:relative;
+padding:1px;
+border-radius:36px;
+background:linear-gradient(145deg,rgba(239,213,143,.42),rgba(246,239,227,.07),rgba(201,164,94,.18));
+box-shadow:var(--shadow);
+transform:translateZ(0);
+}
+.hero-visual-inner{
+min-height:610px;
+padding:28px;
+border-radius:35px;
+overflow:hidden;
+background:
+radial-gradient(circle at 72% 0%,rgba(239,213,143,.16),transparent 18rem),
+linear-gradient(160deg,rgba(12,20,34,.95),rgba(7,8,10,.86));
+backdrop-filter:blur(22px);
+}
+.editorial-card{
+position:relative;
+min-height:340px;
+padding:28px;
+border:1px solid rgba(239,213,143,.13);
+border-radius:28px;
+background:
+linear-gradient(135deg,rgba(246,239,227,.08),rgba(246,239,227,.02)),
+radial-gradient(circle at 80% 22%,rgba(239,213,143,.14),transparent 13rem);
+overflow:hidden;
+}
+.editorial-card:before{
+content:"";
+position:absolute;
+right:-85px;
+bottom:-85px;
+width:210px;
+height:210px;
+border:1px solid rgba(239,213,143,.11);
+border-radius:50%;
+}
+.paper-stack{
+position:absolute;
+right:24px;
+top:24px;
+width:38%;
+display:grid;
+gap:10px;
+}
+.paper{
+min-height:74px;
+border-radius:13px;
+background:rgba(246,239,227,.82);
+box-shadow:0 22px 50px rgba(0,0,0,.20);
+padding:14px;
+}
+.paper.dark{
+background:rgba(9,17,29,.94);
+border:1px solid rgba(239,213,143,.16);
+}
+.paper span{
+display:block;
+height:6px;
+margin-bottom:8px;
+border-radius:999px;
+background:rgba(18,16,13,.22);
+}
+.paper.dark span{background:rgba(239,213,143,.24)}
+.paper span:nth-child(1){width:68%}
+.paper span:nth-child(2){width:92%}
+.paper span:nth-child(3){width:46%}
+.editorial-title{
+position:relative;
+z-index:2;
+max-width:62%;
+font-family:var(--serif);
+font-size:3.05rem;
+line-height:.94;
+letter-spacing:-.05em;
+font-weight:400;
+}
+.editorial-title em{color:var(--gold-2);font-style:italic}
+.editorial-note{
+position:relative;
+z-index:2;
+max-width:58%;
+margin-top:24px;
+color:rgba(246,239,227,.62);
+font-size:.92rem;
+font-weight:300;
+}
+.snapshot{
+margin-top:16px;
+display:grid;
+grid-template-columns:1fr;
+gap:12px;
+}
+.snapshot-row{
+display:grid;
+grid-template-columns:120px 1fr;
+gap:18px;
+padding:16px 0;
+border-bottom:1px solid rgba(239,213,143,.11);
+}
+.snapshot-row small{
+color:var(--muted);
+font-size:.62rem;
+letter-spacing:.18em;
+text-transform:uppercase;
+}
+.snapshot-row strong{
+color:var(--cream);
+font-weight:410;
+font-size:.98rem;
+}
+.mini-metrics{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:1px;
+margin-top:18px;
+border:1px solid rgba(239,213,143,.13);
+border-radius:20px;
+overflow:hidden;
+background:rgba(239,213,143,.11);
+}
+.mini-metric{
+padding:18px 14px;
+background:rgba(246,239,227,.045);
+}
+.mini-metric b{
+display:block;
+font-family:var(--serif);
+color:var(--gold-2);
+font-size:2.15rem;
+line-height:1;
+font-weight:400;
+}
+.mini-metric span{
+display:block;
+margin-top:8px;
+color:rgba(246,239,227,.52);
+font-size:.61rem;
+letter-spacing:.13em;
+text-transform:uppercase;
+}
+
+.logo-strip{
+padding:10px clamp(20px,4.7vw,76px) 72px;
+}
+.logo-shell{
+display:grid;
+grid-template-columns:230px 1fr;
+gap:32px;
+align-items:center;
+padding:24px 0;
+border-top:1px solid rgba(239,213,143,.13);
+border-bottom:1px solid rgba(239,213,143,.13);
+}
+.logo-label{
+color:var(--muted);
+font-size:.68rem;
+letter-spacing:.2em;
+text-transform:uppercase;
+}
+.logo-marquee{
+overflow:hidden;
+mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);
+}
+.logo-track{
+display:flex;
+width:max-content;
+animation:marquee 30s linear infinite;
+}
+.logo-marquee:hover .logo-track{animation-play-state:paused}
+@keyframes marquee{to{transform:translateX(-50%)}}
+.client-logo{
+min-width:210px;
+height:76px;
+display:grid;
+place-items:center;
+margin-right:10px;
+padding:12px 20px;
+border:1px solid rgba(239,213,143,.12);
+background:rgba(246,239,227,.028);
+color:rgba(246,239,227,.66);
+font-family:var(--serif);
+font-size:1.02rem;
+text-align:center;
+transition:.35s var(--ease);
+}
+.client-logo:hover{
+color:var(--gold-2);
+border-color:rgba(239,213,143,.32);
+background:rgba(246,239,227,.06);
+}
+
+.section{
+position:relative;
+padding:122px clamp(20px,4.7vw,76px);
+}
+.section.alt{
+background:linear-gradient(180deg,rgba(246,239,227,.038),rgba(246,239,227,.012));
+border-top:1px solid rgba(239,213,143,.10);
+border-bottom:1px solid rgba(239,213,143,.10);
+}
+.section-head{
+display:grid;
+grid-template-columns:minmax(140px,.26fr) minmax(0,1fr);
+gap:clamp(28px,6vw,104px);
+align-items:start;
+margin-bottom:76px;
+}
+.label{
+color:var(--gold-2);
+font-size:.68rem;
+letter-spacing:.27em;
+text-transform:uppercase;
+}
+h2{
+max-width:1120px;
+font-family:var(--serif);
+font-size:clamp(3rem,6.45vw,7rem);
+line-height:.9;
+letter-spacing:-.065em;
+font-weight:400;
+}
+h2 em{color:var(--gold-2);font-style:italic}
+
+.profile-grid{
+display:grid;
+grid-template-columns:.82fr 1.18fr;
+gap:clamp(36px,6vw,92px);
+align-items:start;
+}
+.bio-portrait{
+position:sticky;
+top:112px;
+border-radius:34px;
+overflow:hidden;
+border:1px solid rgba(239,213,143,.15);
+background:
+radial-gradient(circle at 62% 20%,rgba(239,213,143,.16),transparent 15rem),
+linear-gradient(160deg,rgba(246,239,227,.065),rgba(246,239,227,.018));
+min-height:520px;
+}
+.portrait-art{
+min-height:360px;
+position:relative;
+background:
+linear-gradient(140deg,rgba(9,17,29,.98),rgba(18,14,9,.92)),
+radial-gradient(circle at 40% 35%,rgba(239,213,143,.18),transparent 17rem);
+}
+.portrait-art svg{
+position:absolute;
+inset:0;
+width:100%;
+height:100%;
+}
+.portrait-caption{
+padding:28px;
+border-top:1px solid rgba(239,213,143,.12);
+}
+.portrait-caption h3{
+font-family:var(--serif);
+font-weight:400;
+font-size:2.2rem;
+line-height:.98;
+letter-spacing:-.04em;
+margin-bottom:16px;
+}
+.portrait-caption p{
+color:rgba(246,239,227,.64);
+font-weight:300;
+}
+.copy{
+display:grid;
+gap:26px;
+max-width:920px;
+}
+.copy p{
+color:rgba(246,239,227,.72);
+font-size:clamp(1.05rem,1.32vw,1.24rem);
+font-weight:300;
+}
+.copy strong{
+color:var(--cream);
+font-weight:470;
+}
+.stats{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:1px;
+margin-top:56px;
+border:1px solid rgba(239,213,143,.13);
+background:rgba(239,213,143,.12);
+}
+.stat{
+min-height:218px;
+padding:30px;
+background:rgba(8,10,15,.78);
+position:relative;
+overflow:hidden;
+}
+.stat:after{
+content:"";
+position:absolute;
+right:-70px;
+bottom:-70px;
+width:150px;
+height:150px;
+border:1px solid rgba(239,213,143,.08);
+border-radius:50%;
+}
+.stat b{
+display:block;
+font-family:var(--serif);
+color:var(--gold-2);
+font-size:clamp(3rem,5.8vw,5.2rem);
+line-height:.9;
+font-weight:400;
+}
+.stat span{
+display:block;
+margin-top:22px;
+color:rgba(246,239,227,.58);
+font-size:.71rem;
+letter-spacing:.15em;
+text-transform:uppercase;
+}
+
+.practice-grid{
+display:grid;
+grid-template-columns:1.05fr .95fr;
+gap:18px;
+}
+.practice-card{
+position:relative;
+min-height:390px;
+padding:38px;
+border-radius:36px;
+border:1px solid rgba(239,213,143,.14);
+background:
+radial-gradient(circle at 85% 18%,rgba(239,213,143,.13),transparent 17rem),
+linear-gradient(160deg,rgba(246,239,227,.068),rgba(246,239,227,.022));
+overflow:hidden;
+transition:.42s var(--ease);
+}
+.practice-card:hover{
+transform:translateY(-7px);
+border-color:rgba(239,213,143,.34);
+}
+.practice-card.large{
+grid-row:span 2;
+min-height:798px;
+}
+.practice-card:after{
+content:"";
+position:absolute;
+right:-125px;
+bottom:-125px;
+width:310px;
+height:310px;
+border:1px solid rgba(239,213,143,.10);
+border-radius:50%;
+}
+.practice-card small{
+color:var(--gold-2);
+font-size:.62rem;
+letter-spacing:.18em;
+text-transform:uppercase;
+}
+.practice-card h3{
+max-width:760px;
+margin:30px 0 20px;
+font-family:var(--serif);
+font-size:clamp(2rem,3.7vw,4rem);
+line-height:.9;
+letter-spacing:-.052em;
+font-weight:400;
+}
+.practice-card p{
+max-width:700px;
+color:rgba(246,239,227,.65);
+font-weight:300;
+}
+.tags{
+display:flex;
+flex-wrap:wrap;
+gap:10px;
+margin-top:34px;
+}
+.tags span{
+color:rgba(246,239,227,.65);
+border-bottom:1px solid rgba(239,213,143,.45);
+font-size:.78rem;
+}
+
+.experience-wrap{
+position:relative;
+max-width:1180px;
+margin-left:auto;
+}
+.experience-wrap:before{
+content:"";
+position:absolute;
+left:20px;
+top:0;
+bottom:0;
+width:1px;
+background:linear-gradient(to bottom,transparent,var(--line-strong),transparent);
+}
+.role{
+position:relative;
+display:grid;
+grid-template-columns:240px minmax(0,1fr);
+gap:clamp(28px,5vw,78px);
+padding:0 0 82px 68px;
+}
+.role:last-child
+.role:before{
+content:"";
+position:absolute;
+left:12px;
+top:9px;
+width:17px;
+height:17px;
+border-radius:50%;
+background:radial-gradient(circle,#fff3bd,var(--gold));
+box-shadow:0 0 0 9px rgba(201,164,94,.09);
+}
+.period{
+color:var(--gold-2);
+font-size:.72rem;
+letter-spacing:.18em;
+text-transform:uppercase;
+}
+.company{
+margin-top:9px;
+color:rgba(246,239,227,.52);
+font-size:.92rem;
+}
+.role-card{
+padding:1px;
+border-radius:32px;
+background:linear-gradient(145deg,rgba(239,213,143,.24),rgba(246,239,227,.04),rgba(239,213,143,.13));
+}
+.role-inner{
+border-radius:31px;
+padding:36px;
+background:
+radial-gradient(circle at 100% 0%,rgba(239,213,143,.10),transparent 17rem),
+linear-gradient(160deg,rgba(246,239,227,.058),rgba(246,239,227,.019));
+}
+.role h3{
+margin-bottom:14px;
+font-family:var(--serif);
+font-size:clamp(2rem,3.45vw,3.38rem);
+line-height:.95;
+letter-spacing:-.045em;
+font-weight:400;
+}
+.badge{
+display:inline-flex;
+margin-bottom:25px;
+padding:6px 12px;
+border-radius:999px;
+color:#11100b;
+background:linear-gradient(135deg,var(--gold-2),var(--gold));
+font-size:.61rem;
+letter-spacing:.17em;
+text-transform:uppercase;
+}
+.role p,.role li{
+color:rgba(246,239,227,.68);
+font-weight:300;
+}
+.role ul{
+display:grid;
+gap:11px;
+margin-top:23px;
+list-style:none;
+}
+.role li{
+position:relative;
+padding-left:23px;
+}
+.role li:before{
+content:"";
+position:absolute;
+left:0;
+top:.78em;
+width:9px;
+height:1px;
+background:var(--gold);
+}
+.chips{
+display:flex;
+flex-wrap:wrap;
+gap:9px;
+margin-top:28px;
+}
+.chip{
+padding:7px 12px;
+border:1px solid rgba(239,213,143,.16);
+border-radius:999px;
+background:rgba(246,239,227,.024);
+color:rgba(246,239,227,.62);
+font-size:.72rem;
+}
+
+.split-feature{
+display:grid;
+grid-template-columns:.92fr 1.08fr;
+gap:clamp(30px,5vw,76px);
+align-items:center;
+}
+.feature-visual{
+min-height:570px;
+border:1px solid rgba(239,213,143,.15);
+border-radius:38px;
+overflow:hidden;
+background:
+linear-gradient(160deg,rgba(246,239,227,.06),rgba(246,239,227,.016)),
+radial-gradient(circle at 55% 22%,rgba(239,213,143,.16),transparent 18rem);
+box-shadow:0 34px 110px rgba(0,0,0,.34);
+position:relative;
+}
+.browser-frame{
+position:absolute;
+left:8%;
+top:10%;
+width:78%;
+min-height:260px;
+padding:18px;
+border:1px solid rgba(239,213,143,.14);
+border-radius:24px;
+background:rgba(7,10,16,.78);
+box-shadow:0 30px 90px rgba(0,0,0,.35);
+}
+.browser-dots{
+display:flex;
+gap:7px;
+margin-bottom:20px;
+}
+.browser-dots span{
+width:8px;
+height:8px;
+border-radius:50%;
+background:rgba(239,213,143,.38);
+}
+.browser-lines{
+display:grid;
+gap:11px;
+}
+.browser-lines span{
+height:8px;
+border-radius:999px;
+background:rgba(246,239,227,.13);
+}
+.browser-lines span:nth-child(1){width:78%;height:16px;background:rgba(239,213,143,.36)}
+.browser-lines span:nth-child(2){width:92%}
+.browser-lines span:nth-child(3){width:62%}
+.browser-lines span:nth-child(4){width:84%}
+.browser-lines span:nth-child(5){width:48%}
+.note-card{
+position:absolute;
+right:8%;
+bottom:11%;
+width:54%;
+min-height:220px;
+padding:24px;
+border-radius:24px;
+border:1px solid rgba(239,213,143,.18);
+background:rgba(246,239,227,.86);
+color:#17130d;
+box-shadow:0 26px 80px rgba(0,0,0,.28);
+}
+.note-card small{
+display:block;
+margin-bottom:18px;
+color:#8b6732;
+font-size:.62rem;
+letter-spacing:.18em;
+text-transform:uppercase;
+}
+.note-card h3{
+font-family:var(--serif);
+font-size:2.1rem;
+line-height:.95;
+letter-spacing:-.04em;
+font-weight:400;
+}
+.note-card p{
+margin-top:16px;
+color:rgba(23,19,13,.72);
+font-size:.9rem;
+}
+.feature-copy h3{
+font-family:var(--serif);
+font-size:clamp(2.7rem,5.2vw,5.6rem);
+line-height:.9;
+letter-spacing:-.06em;
+font-weight:400;
+margin-bottom:28px;
+}
+.feature-copy p{
+max-width:760px;
+color:rgba(246,239,227,.70);
+font-size:1.08rem;
+font-weight:300;
+margin-bottom:22px;
+}
+.checklist{
+display:grid;
+gap:13px;
+margin-top:34px;
+}
+.check-item{
+display:grid;
+grid-template-columns:26px 1fr;
+gap:14px;
+align-items:start;
+color:rgba(246,239,227,.68);
+font-weight:300;
+}
+.check-item span{
+width:26px;
+height:26px;
+display:grid;
+place-items:center;
+border-radius:50%;
+color:#141008;
+background:linear-gradient(135deg,var(--gold-2),var(--gold));
+font-size:.82rem;
+}
+
+.accordion{
+max-width:1120px;
+margin-left:auto;
+border-top:1px solid rgba(239,213,143,.13);
+}
+.acc-item{
+border-bottom:1px solid rgba(239,213,143,.13);
+}
+.acc-head{
+width:100%;
+display:grid;
+grid-template-columns:160px 1fr 42px;
+gap:24px;
+align-items:center;
+padding:28px 0;
+border:0;
+background:transparent;
+text-align:left;
+}
+.acc-head small{
+color:var(--gold-2);
+font-size:.62rem;
+letter-spacing:.18em;
+text-transform:uppercase;
+}
+.acc-head strong{
+font-family:var(--serif);
+font-size:clamp(1.8rem,3vw,3.05rem);
+line-height:1;
+letter-spacing:-.035em;
+font-weight:400;
+}
+.acc-icon{
+width:42px;
+height:42px;
+display:grid;
+place-items:center;
+border:1px solid rgba(239,213,143,.18);
+border-radius:50%;
+color:var(--gold-2);
+transition:.35s var(--ease);
+}
+.acc-item.open .acc-icon{
+transform:rotate(45deg);
+background:rgba(239,213,143,.10);
+}
+.acc-body{
+max-height:0;
+overflow:hidden;
+transition:max-height .52s var(--ease);
+}
+.acc-content{
+max-width:860px;
+padding:0 0 30px 184px;
+color:rgba(246,239,227,.65);
+font-weight:300;
+}
+
+.cta{
+position:relative;
+min-height:88vh;
+display:grid;
+place-items:center;
+text-align:center;
+padding:132px clamp(20px,4.7vw,76px);
+overflow:hidden;
+}
+.cta:before{
+content:"";
+position:absolute;
+width:min(70vw,880px);
+aspect-ratio:1;
+border:1px solid rgba(239,213,143,.12);
+border-radius:50%;
+background:radial-gradient(circle,rgba(239,213,143,.08),transparent 60%);
+pointer-events:none;
+}
+.cta-inner{
+position:relative;
+z-index:2;
+max-width:980px;
+}
+.cta h2{
+margin:24px auto 30px;
+}
+.cta p{
+max-width:770px;
+margin:0 auto 42px;
+color:rgba(246,239,227,.70);
+font-size:1.15rem;
+font-weight:300;
+}
+.contact-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:1px;
+margin-top:66px;
+border:1px solid rgba(239,213,143,.13);
+background:rgba(239,213,143,.12);
+text-align:left;
+}
+.contact-card{
+padding:28px;
+background:rgba(8,10,15,.80);
+}
+.contact-card small{
+display:block;
+margin-bottom:10px;
+color:var(--muted);
+font-size:.62rem;
+letter-spacing:.18em;
+text-transform:uppercase;
+}
+.contact-card a,.contact-card span{
+color:var(--cream);
+overflow-wrap:anywhere;
+}
+.footer{
+position:relative;
+z-index:3;
+display:flex;
+justify-content:space-between;
+gap:24px;
+padding:30px clamp(20px,4.7vw,76px);
+border-top:1px solid rgba(239,213,143,.12);
+color:rgba(246,239,227,.48);
+font-size:.82rem;
+}
+
+.reveal{
+opacity:0;
+transform:translateY(30px);
+transition:opacity .9s var(--ease),transform .9s var(--ease);
+}
+.reveal.visible{
+opacity:1;
+transform:none;
+}
+
+@media(max-width:1120px){
+.nav{grid-template-columns:auto auto}
+.nav-links{display:none}
+.hero,.profile-grid,.practice-grid,.split-feature{grid-template-columns:1fr}
+.hero-orbit{display:none}
+.hero-visual{max-width:720px}
+.logo-shell{grid-template-columns:1fr}
+.stats,.contact-grid{grid-template-columns:repeat(2,1fr)}
+.bio-portrait{position:relative;top:auto}
+.practice-card.large{min-height:440px}
+}
+@media(max-width:760px){
+.nav-cta{display:none}
+.hero{padding-top:122px}
+.hero-visual-inner{min-height:auto;padding:20px}
+.editorial-card{min-height:420px}
+.editorial-title,.editorial-note{max-width:100%}
+.paper-stack{
+position:relative;
+right:auto;
+top:auto;
+width:100%;
+margin-top:26px;
+}
+.snapshot-row{grid-template-columns:1fr}
+.mini-metrics{grid-template-columns:1fr}
+.section{padding:88px 20px}
+.section-head,.role{grid-template-columns:1fr}
+.role{padding-left:48px}
+.stats,.contact-grid{grid-template-columns:1fr}
+.bio-portrait{min-height:auto}
+.portrait-art{min-height:300px}
+.practice-card,.practice-card.large{min-height:auto}
+.feature-visual{min-height:500px}
+.note-card{width:72%}
+.acc-head{grid-template-columns:1fr 42px}
+.acc-head small{grid-column:1/-1}
+.acc-content{padding-left:0}
+.actions{flex-direction:column}
+.btn{width:100%}
+h1{font-size:clamp(4rem,17vw,7rem)}
+h2{font-size:clamp(3rem,13vw,5.8rem)}
+.footer{flex-direction:column}
+} </style>
+
+</head>
+
+<body>
+<div class="progress" id="progress"></div>
+<div class="bg-grid"></div>
+<div class="cursor-light" id="cursorLight"></div>
+
+<nav class="nav" id="nav">
+  <a class="brand" href="#top"><span class="brand-mark">KB</span>Kanishka Badlani</a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#profile">Profile</a></li>
+    <li><a href="#practice">Practice</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#skills">Skills</a></li>
+  </ul>
+  <a class="nav-cta" href="mailto:kanishkaatoffice@gmail.com">Contact</a>
+</nav>
+
+<header class="hero" id="top">
+  <div class="hero-orbit" id="heroOrbit"></div>
+
+  <div>
+    <div class="kicker reveal">Content writer & editor · New Delhi</div>
+    <h1 class="reveal">Words that make brands sound <em>clearer, sharper,</em> and more credible.</h1>
+    <p class="hero-copy reveal">
+      Kanishka Badlani is a <strong>content writer, editor, and social-first brand storyteller</strong> working across SEO articles, web content, product copy, social media, proofreading, and editorial quality control.
+    </p>
+    <div class="actions reveal">
+      <a class="btn gold" href="mailto:kanishkaatoffice@gmail.com">Start a conversation</a>
+      <a class="btn" href="#practice">Explore her practice</a>
+    </div>
+  </div>
+
+  <aside class="hero-visual reveal">
+    <div class="hero-visual-inner">
+      <div class="editorial-card">
+        <div class="editorial-title">Editorial taste meets <em>execution.</em></div>
+        <p class="editorial-note">A digital CV for a writer who can research, write, edit, schedule, refine, and publish across formats.</p>
+        <div class="paper-stack">
+          <div class="paper"><span></span><span></span><span></span></div>
+          <div class="paper dark"><span></span><span></span><span></span></div>
+          <div class="paper"><span></span><span></span><span></span></div>
+        </div>
+      </div>
+
+
+  <div class="snapshot">
+    <div class="snapshot-row">
+      <small>Positioning</small>
+      <strong>Content Writer · Editor · Social Media Content Specialist</strong>
+    </div>
+    <div class="snapshot-row">
+      <small>Focus</small>
+      <strong>SEO writing, editorial refinement, web copy, product content, brand voice</strong>
+    </div>
+    <div class="snapshot-row">
+      <small>Education</small>
+      <strong>B.Com (Honours), Delhi University · 2025–2028</strong>
+    </div>
+  </div>
+
+  <div class="mini-metrics">
+    <div class="mini-metric"><b data-count="8">0</b><span>Brands</span></div>
+    <div class="mini-metric"><b data-count="6">0</b><span>Platforms</span></div>
+    <div class="mini-metric"><b data-count="2">0</b><span>Years</span></div>
+  </div>
+</div>
+
+
+  </aside>
+</header>
+
+<section class="logo-strip" id="clients">
+  <div class="logo-shell reveal">
+    <div class="logo-label">Selected client-brand exposure</div>
+    <div class="logo-marquee">
+      <div class="logo-track">
+        <div class="client-logo">Dr K Aesthetics</div>
+        <div class="client-logo">Skinlabs Kolkata</div>
+        <div class="client-logo">Eterne Clinic</div>
+        <div class="client-logo">Hana Aesthetics</div>
+        <div class="client-logo">Skin & Smile Masters</div>
+        <div class="client-logo">GVG Invio</div>
+        <div class="client-logo">Evana Dental & Skin</div>
+        <div class="client-logo">Aishwarya Gera</div>
+        <div class="client-logo">Dr K Aesthetics</div>
+        <div class="client-logo">Skinlabs Kolkata</div>
+        <div class="client-logo">Eterne Clinic</div>
+        <div class="client-logo">Hana Aesthetics</div>
+        <div class="client-logo">Skin & Smile Masters</div>
+        <div class="client-logo">GVG Invio</div>
+        <div class="client-logo">Evana Dental & Skin</div>
+        <div class="client-logo">Aishwarya Gera</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section alt" id="profile">
+  <div class="section-head">
+    <div class="label reveal">Profile</div>
+    <h2 class="reveal">A modern editorial mind for brands that publish with intent.</h2>
+  </div>
+
+  <div class="profile-grid">
+    <aside class="bio-portrait reveal">
+      <div class="portrait-art">
+        <svg viewBox="0 0 700 520" preserveAspectRatio="none" aria-hidden="true">
+          <defs>
+            <linearGradient id="g1" x1="0" x2="1" y1="0" y2="1">
+              <stop offset="0%" stop-color="#efd58f" stop-opacity=".72"/>
+              <stop offset="100%" stop-color="#c9a45e" stop-opacity=".18"/>
+            </linearGradient>
+            <linearGradient id="g2" x1="1" x2="0" y1="0" y2="1">
+              <stop offset="0%" stop-color="#f6efe3" stop-opacity=".92"/>
+              <stop offset="100%" stop-color="#927245" stop-opacity=".35"/>
+            </linearGradient>
+          </defs>
+          <circle cx="510" cy="160" r="180" fill="none" stroke="#efd58f" stroke-opacity=".16"/>
+          <circle cx="510" cy="160" r="105" fill="none" stroke="#efd58f" stroke-opacity=".18" stroke-dasharray="8 12"/>
+          <path d="M110 410 C185 240 274 160 438 94 C368 242 305 330 110 410Z" fill="url(#g1)" opacity=".78"/>
+          <path d="M180 430 C275 365 340 296 405 167 C432 320 362 420 180 430Z" fill="url(#g2)" opacity=".86"/>
+          <rect x="78" y="82" width="210" height="12" rx="6" fill="#efd58f" opacity=".35"/>
+          <rect x="78" y="112" width="310" height="8" rx="4" fill="#f6efe3" opacity=".18"/>
+          <rect x="78" y="136" width="248" height="8" rx="4" fill="#f6efe3" opacity=".14"/>
+          <rect x="78" y="160" width="290" height="8" rx="4" fill="#f6efe3" opacity=".12"/>
+        </svg>
+      </div>
+      <div class="portrait-caption">
+        <h3>Writing with structure. Editing with restraint.</h3>
+        <p>Her work is strongest when content needs accuracy, tone, clarity, platform fit, and a controlled publishing workflow.</p>
+      </div>
+    </aside>
+
+
+<div>
+  <div class="copy reveal">
+    <p>Kanishka works across <strong>SEO blogs, product descriptions, web pages, social media captions, long-form articles, e-commerce listings, and brand communication</strong>. Her value is not limited to writing; she turns information into content that is readable, structured, and ready to publish.</p>
+    <p>Her background in skincare, aesthetics, dental, and e-commerce has trained her to handle content that needs both <strong>accuracy and audience sensitivity</strong>. Those skills transfer into broader categories such as technology, environment, lifestyle, education, product-led brands, business content, and digital media.</p>
+    <p>She brings a simple but useful editorial process: understand the subject, define the reader, write with clarity, refine the tone, check for inconsistencies, and keep the final output aligned with the brand.</p>
+  </div>
+
+  <div class="stats reveal">
+    <div class="stat"><b>8+</b><span>Client brands handled in parallel</span></div>
+    <div class="stat"><b>6</b><span>Social and publishing platforms</span></div>
+    <div class="stat"><b>SEO</b><span>Research-led discoverable writing</span></div>
+    <div class="stat"><b>QC</b><span>Proofreading and editorial control</span></div>
+  </div>
+</div>
+
+
+  </div>
+</section>
+
+<section class="section" id="practice">
+  <div class="section-head">
+    <div class="label reveal">Editorial Practice</div>
+    <h2 class="reveal">Not a one-role resume. A content practice across formats.</h2>
+  </div>
+
+  <div class="practice-grid">
+    <article class="practice-card large reveal">
+      <small>Practice area 01</small>
+      <h3>Research-led writing for search, web, and brand authority</h3>
+      <p>Long-form articles, SEO blogs, educational content, web pages, landing copy, and explainers built around audience intent, topic clarity, and clean structure.</p>
+      <div class="tags">
+        <span>SEO blogs</span>
+        <span>Web pages</span>
+        <span>Research</span>
+        <span>Long-form writing</span>
+        <span>Educational content</span>
+      </div>
+    </article>
+
+
+<article class="practice-card reveal">
+  <small>Practice area 02</small>
+  <h3>Editing, proofreading, and quality control</h3>
+  <p>Content refinement across grammar, flow, brand tone, claims, formatting, broken references, inconsistencies, and final publishing readiness.</p>
+  <div class="tags">
+    <span>Proofreading</span>
+    <span>Content cleanup</span>
+    <span>Quality checks</span>
+  </div>
+</article>
+
+<article class="practice-card reveal">
+  <small>Practice area 03</small>
+  <h3>Product, commerce, and social-first storytelling</h3>
+  <p>Product listings, catalog copy, social captions, content calendars, campaign ideas, and concise brand messaging built for digital channels.</p>
+  <div class="tags">
+    <span>Product copy</span>
+    <span>Social media</span>
+    <span>E-commerce</span>
+  </div>
+</article>
+
+
+  </div>
+</section>
+
+<section class="section alt" id="experience">
+  <div class="section-head">
+    <div class="label reveal">Experience</div>
+    <h2 class="reveal">A foundation in fast-moving content environments.</h2>
+  </div>
+
+  <div class="experience-wrap">
+    <article class="role reveal">
+      <div>
+        <div class="period">2025 - Present</div>
+        <div class="company">Skin Business Accelerator</div>
+      </div>
+      <div class="role-card">
+        <div class="role-inner">
+          <h3>Content & Social Media Associate</h3>
+          <span class="badge">Remote · Full-time</span>
+          <p>Managed content planning and execution for multiple client brands, balancing daily publishing needs with brand voice, accuracy, formatting, and final editorial polish.</p>
+          <ul>
+            <li>Created social posts, captions, short-form video copy, content calendars, and SEO-led blog content.</li>
+            <li>Maintained distinct brand voices across Instagram, Facebook, LinkedIn, YouTube, Threads, and X.</li>
+            <li>Used Meta Business Suite for scheduling discipline and cross-platform publishing consistency.</li>
+            <li>Proofread and edited content before publishing to protect tone, grammar, accuracy, and brand trust.</li>
+            <li>Worked with AI-based creative tools while keeping the final output controlled and brand-aligned.</li>
+          </ul>
+          <div class="chips">
+            <span class="chip">Dr K Aesthetics</span>
+            <span class="chip">Skinlabs Kolkata</span>
+            <span class="chip">Eterne Clinic</span>
+            <span class="chip">Hana Aesthetics</span>
+            <span class="chip">Skin & Smile Masters</span>
+            <span class="chip">GVG Invio</span>
+            <span class="chip">Evana Dental & Skin</span>
+            <span class="chip">Aishwarya Gera</span>
+          </div>
+        </div>
+      </div>
+    </article>
+
+
+<article class="role reveal">
+  <div>
+    <div class="period">2024 - Present</div>
+    <div class="company">Meesho Seller Operations</div>
+  </div>
+  <div class="role-card">
+    <div class="role-inner">
+      <h3>E-commerce & Content Executive</h3>
+      <span class="badge">Freelance · Remote</span>
+      <p>Created clearer, more searchable product content by combining catalog management with keyword-led listing copy.</p>
+      <ul>
+        <li>Wrote SEO-friendly product titles and descriptions for Meesho listings.</li>
+        <li>Maintained catalog accuracy across pricing, image alignment, and structured product information.</li>
+        <li>Improved product discoverability through clearer naming, keyword placement, and listing hygiene.</li>
+      </ul>
+    </div>
+  </div>
+</article>
+
+
+  </div>
+</section>
+
+<section class="section" id="work">
+  <div class="section-head">
+    <div class="label reveal">Selected Work Direction</div>
+    <h2 class="reveal">The kind of content systems she can own.</h2>
+  </div>
+
+  <div class="split-feature reveal">
+    <div class="feature-visual">
+      <div class="browser-frame">
+        <div class="browser-dots"><span></span><span></span><span></span></div>
+        <div class="browser-lines">
+          <span></span><span></span><span></span><span></span><span></span>
+        </div>
+      </div>
+      <div class="note-card">
+        <small>Editorial system</small>
+        <h3>From raw information to polished content.</h3>
+        <p>Research, structure, write, edit, check, and prepare for publishing.</p>
+      </div>
+    </div>
+
+
+<div class="feature-copy">
+  <h3>Built for brands that need reliable content output.</h3>
+  <p>Her work fits teams that need blog articles, web copy, product pages, product descriptions, content calendars, proofreading, content audits, and social media publishing support.</p>
+  <p>The strongest use case is not one isolated writing task. It is an ongoing content flow where tone, consistency, speed, and accuracy all matter.</p>
+
+  <div class="checklist">
+    <div class="check-item"><span>✓</span><div>Research-led SEO blogs and educational articles.</div></div>
+    <div class="check-item"><span>✓</span><div>Product and e-commerce copy that improves clarity and discoverability.</div></div>
+    <div class="check-item"><span>✓</span><div>Social content calendars, captions, and platform-specific copy.</div></div>
+    <div class="check-item"><span>✓</span><div>Proofreading, tone correction, formatting, and editorial quality checks.</div></div>
+  </div>
+</div>
+
+
+  </div>
+</section>
+
+<section class="section alt" id="skills">
+  <div class="section-head">
+    <div class="label reveal">Capabilities</div>
+    <h2 class="reveal">A refined toolkit for modern digital content.</h2>
+  </div>
+
+  <div class="accordion reveal" id="accordion">
+    <div class="acc-item open">
+      <button class="acc-head" type="button">
+        <small>01</small>
+        <strong>SEO Writing & Research</strong>
+        <span class="acc-icon">+</span>
+      </button>
+      <div class="acc-body" style="max-height:160px">
+        <div class="acc-content">Long-form SEO blogs, product pages, topic research, keyword placement, headings, readability, originality, and content structure.</div>
+      </div>
+    </div>
+
+
+<div class="acc-item">
+  <button class="acc-head" type="button">
+    <small>02</small>
+    <strong>Editing & Proofreading</strong>
+    <span class="acc-icon">+</span>
+  </button>
+  <div class="acc-body">
+    <div class="acc-content">Grammar refinement, tone correction, structure cleanup, formatting, claim checking, broken-reference detection, and final publishing readiness.</div>
+  </div>
+</div>
+
+<div class="acc-item">
+  <button class="acc-head" type="button">
+    <small>03</small>
+    <strong>Product & E-commerce Content</strong>
+    <span class="acc-icon">+</span>
+  </button>
+  <div class="acc-body">
+    <div class="acc-content">Product descriptions, listing titles, catalog hygiene, keyword optimisation, pricing updates, product explainers, and customer-facing clarity.</div>
+  </div>
+</div>
+
+<div class="acc-item">
+  <button class="acc-head" type="button">
+    <small>04</small>
+    <strong>Social Media & Brand Channels</strong>
+    <span class="acc-icon">+</span>
+  </button>
+  <div class="acc-body">
+    <div class="acc-content">Instagram, Facebook, LinkedIn, YouTube, Threads, X, content scheduling, captions, platform-specific writing, and brand consistency.</div>
+  </div>
+</div>
+
+<div class="acc-item">
+  <button class="acc-head" type="button">
+    <small>05</small>
+    <strong>Tools & Working Style</strong>
+    <span class="acc-icon">+</span>
+  </button>
+  <div class="acc-body">
+    <div class="acc-content">MS Word, Excel, PowerPoint, Google Sheets, Meta Business Suite, AI image tools, basic video workflows, adaptability, attention to detail, and deadline discipline.</div>
+  </div>
+</div>
+
+
+  </div>
+</section>
+
+<section class="cta" id="contact">
+  <div class="cta-inner reveal">
+    <div class="label">Contact</div>
+    <h2>For brands that need sharper words, cleaner pages, and stronger editorial control.</h2>
+    <p>Kanishka is available for content writing and editing roles across SEO, web content, social media, product communication, proofreading, and e-commerce content.</p>
+    <a class="btn gold" href="mailto:kanishkaatoffice@gmail.com">Email Kanishka</a>
+
+
+<div class="contact-grid">
+  <div class="contact-card">
+    <small>Email</small>
+    <a href="#" id="emailLink">Reveal Email</a>	
+  </div>
+ <div class="contact-card">
+  <small>Direct contact</small>
+  <a href="https://wa.me/919555608133?text=Hi%20Kanishka,%20I%20came%20across%20your%20profile%20and%20would%20like%20to%20connect." target="_blank">
+    WhatsApp Conversation →
+  </a>
+</div>
+  </div>
+  <div class="contact-card">
+    <small>Location</small>
+    <span>Naraina, New Delhi - 110028</span>
+  </div>
+  <div class="contact-card">
+    <small>Education</small>
+    <span>B.Com (Hons), Delhi University</span>
+  </div>
+</div>
+
+
+  </div>
+</section>
+
+<footer class="footer">
+  <span>© 2026 Kanishka Badlani</span>
+  <span>Content Writer & Editor · SEO · Social · Product · Web</span>
+</footer>
+
+<script>
+const nav=document.getElementById("nav");
+const progress=document.getElementById("progress");
+const heroOrbit=document.getElementById("heroOrbit");
+const cursorLight=document.getElementById("cursorLight");
+
+window.addEventListener("scroll",()=>{
+  const top=window.scrollY;
+  const height=document.documentElement.scrollHeight-window.innerHeight;
+  progress.style.width=(height>0?(top/height)*100:0)+"%";
+  nav.classList.toggle("scrolled",top>24);
+  if(heroOrbit) heroOrbit.style.setProperty("--hero-shift",top*.08+"px");
+  updateActiveNav();
+});
+
+document.addEventListener("mousemove",(e)=>{
+  if(!cursorLight) return;
+  cursorLight.style.left=e.clientX+"px";
+  cursorLight.style.top=e.clientY+"px";
+});
+
+const revealItems=document.querySelectorAll(".reveal");
+const revealObserver=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add("visible");
+      revealObserver.unobserve(entry.target);
+    }
+  });
+},{threshold:.12});
+revealItems.forEach(item=>revealObserver.observe(item));
+
+const countItems=document.querySelectorAll("[data-count]");
+const countObserver=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(!entry.isIntersecting)return;
+    const el=entry.target;
+    const end=parseInt(el.dataset.count,10);
+    let current=0;
+    const suffix=end===8||end===2?"+":"";
+    const timer=setInterval(()=>{
+      current++;
+      if(current>=end){
+        current=end;
+        clearInterval(timer);
+      }
+      el.textContent=current+suffix;
+    },38);
+    countObserver.unobserve(el);
+  });
+},{threshold:.45});
+countItems.forEach(item=>countObserver.observe(item));
+
+const accItems=document.querySelectorAll(".acc-item");
+accItems.forEach(item=>{
+  const head=item.querySelector(".acc-head");
+  const body=item.querySelector(".acc-body");
+  head.addEventListener("click",()=>{
+    const open=item.classList.contains("open");
+    accItems.forEach(i=>{
+      i.classList.remove("open");
+      i.querySelector(".acc-body").style.maxHeight=null;
+    });
+    if(!open){
+      item.classList.add("open");
+      body.style.maxHeight=body.scrollHeight+"px";
+    }
+  });
+});
+
+const sections=[...document.querySelectorAll("section[id],header[id]")];
+const navLinks=[...document.querySelectorAll(".nav-links a")];
+function updateActiveNav(){
+  let current="top";
+  sections.forEach(section=>{
+    if(window.scrollY>=section.offsetTop-180) current=section.id;
+  });
+  navLinks.forEach(link=>{
+    link.classList.toggle("active",link.getAttribute("href")==="#"+current);
+  });
+}
+updateActiveNav();
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
+  anchor.addEventListener("click",function(e){
+    const target=document.querySelector(this.getAttribute("href"));
+    if(target){
+      e.preventDefault();
+      target.scrollIntoView({behavior:"smooth",block:"start"});
+    }
+  });
+});
+</script>
+<script id="email-protect">
+const user = "kanishkaatoffice";
+const domain = "gmail.com";
+
+const email = user + "@" + domain;
+
+const link = document.getElementById("emailLink");
+
+link.addEventListener("click", function(e){
+  e.preventDefault();
+  link.textContent = email;
+  link.href = "mailto:" + email;
+});
+</script>
+
+</body>
+</html>
